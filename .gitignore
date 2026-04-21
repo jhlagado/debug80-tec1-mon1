@@ -1,8 +1,14 @@
-# Build output
+# Assembled output (match debug80.json outputDir; default is build/)
 build/
+out/
+dist/
 
-# Local tooling
+# Debug80 extension local cache
 .debug80/
+
+# Local VS Code launch; optional (extension also contributes a default)
+.vscode/launch.json
 
 # OS
 .DS_Store
+Thumbs.db

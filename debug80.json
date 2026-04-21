@@ -1,93 +1,121 @@
 {
-  "defaultTarget": "serial",
-  "targets": {
-    "serial": {
-      "asm": "src/serial.asm",
-      "sourceFile": "src/serial.asm",
-      "sourceRoots": [
-        "src",
-        "roms/tec1/mon-1b"
-      ],
-      "outputDir": "build",
-      "artifactBase": "serial",
-      "platform": "tec1",
-      "tec1": {
-        "regions": [
-          {
-            "start": 0,
-            "end": 2047,
-            "kind": "rom"
-          },
-          {
-            "start": 2048,
-            "end": 4095,
-            "kind": "ram"
-          }
-        ],
-        "appStart": 2048,
-        "entry": 0,
-        "romId": "mon-1b",
-        "romHex": "roms/tec1/mon-1b/mon-1b.hex",
-        "extraListings": [
-          "roms/tec1/mon-1b/mon-1b.lst"
-        ]
-      },
-      "profile": "mon1b"
-    },
-    "matrix": {
-      "asm": "src/matrix.asm",
-      "sourceFile": "src/matrix.asm",
-      "sourceRoots": [
-        "src",
-        "roms/tec1/mon-1b"
-      ],
-      "outputDir": "build",
-      "artifactBase": "matrix",
-      "platform": "tec1",
-      "tec1": {
-        "regions": [
-          {
-            "start": 0,
-            "end": 2047,
-            "kind": "rom"
-          },
-          {
-            "start": 2048,
-            "end": 4095,
-            "kind": "ram"
-          }
-        ],
-        "appStart": 2048,
-        "entry": 0,
-        "romId": "mon-1b",
-        "romHex": "roms/tec1/mon-1b/mon-1b.hex",
-        "extraListings": [
-          "roms/tec1/mon-1b/mon-1b.lst"
-        ]
-      },
-      "stopOnEntry": true,
-      "profile": "mon1b"
-    }
-  },
-  "projectPlatform": "tec1",
   "projectVersion": 2,
+  "projectPlatform": "tec1",
   "defaultProfile": "mon1b",
+  "defaultTarget": "app",
   "profiles": {
     "mon1b": {
       "platform": "tec1",
-      "description": "MON-1B monitor profile",
+      "description": "TEC-1 monitor-first profile with user code at 0x0800.",
       "bundledAssets": {
         "romHex": {
           "bundleId": "tec1/mon1b/v1",
           "path": "mon-1b.bin",
-          "destination": "roms/tec1/mon-1b/mon-1b.bin"
+          "destination": "roms/tec1/mon1b/mon-1b.bin"
         },
         "listing": {
           "bundleId": "tec1/mon1b/v1",
           "path": "mon-1b.lst",
-          "destination": "roms/tec1/mon-1b/mon-1b.lst"
+          "destination": "roms/tec1/mon1b/mon-1b.lst"
         }
       }
+    }
+  },
+  "targets": {
+    "app": {
+      "sourceFile": "src/main.asm",
+      "outputDir": "build",
+      "artifactBase": "main",
+      "platform": "tec1",
+      "profile": "mon1b",
+      "tec1": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 4095,
+            "kind": "ram"
+          }
+        ],
+        "appStart": 2048,
+        "entry": 0,
+        "romHex": "roms/tec1/mon1b/mon-1b.bin",
+        "extraListings": [
+          "roms/tec1/mon1b/mon-1b.lst"
+        ],
+        "sourceRoots": [
+          "src",
+          "roms/tec1/mon1b"
+        ]
+      }
+    },
+    "matrix": {
+      "outputDir": "build",
+      "platform": "tec1",
+      "profile": "mon1b",
+      "tec1": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 4095,
+            "kind": "ram"
+          }
+        ],
+        "appStart": 2048,
+        "entry": 0,
+        "romHex": "roms/tec1/mon1b/mon-1b.bin",
+        "extraListings": [
+          "roms/tec1/mon1b/mon-1b.lst"
+        ],
+        "sourceRoots": [
+          "src",
+          "roms/tec1/mon1b"
+        ]
+      },
+      "sourceFile": "src/matrix.asm",
+      "asm": "src/matrix.asm",
+      "artifactBase": "matrix"
+    },
+    "serial": {
+      "outputDir": "build",
+      "platform": "tec1",
+      "profile": "mon1b",
+      "tec1": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 4095,
+            "kind": "ram"
+          }
+        ],
+        "appStart": 2048,
+        "entry": 0,
+        "romHex": "roms/tec1/mon1b/mon-1b.bin",
+        "extraListings": [
+          "roms/tec1/mon1b/mon-1b.lst"
+        ],
+        "sourceRoots": [
+          "src",
+          "roms/tec1/mon1b"
+        ]
+      },
+      "sourceFile": "src/serial.asm",
+      "asm": "src/serial.asm",
+      "artifactBase": "serial"
     }
   }
 }
